@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+:root{
+    --font:'Dongle', sans-serif;
+    --span:#ada2a2;
+    --mainColor:#5e5c5c;
+    --blue:rgb(32, 181, 207);
+    --red:#c54848;
+}
+.ProfilUser{
+    background-color: #FFF;
+    border-radius: 10px;
+    height: 75%;
+    width:80%;
+    margin:65px auto;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px 60px;
+}
+.ProfilUser .container{
+    height:95%;
+    padding:20px;
+}
+
+/*First Profil Start */
+.ProfilUser .container .First{
+display: flex;
+justify-content: space-between;
+}
+.ProfilUser .container .First .count{
+    display: flex;
+    color: var(--mainColor);
+}
+
+.First .count .ele span{
+    margin-right: 12px;
+}
+
+.First .count .ele span.Nombre{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font);
+  font-size:25px;
+  color:#FFF;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+}
+.First .count .ele span.Nombre.one{
+    background-color: var(--blue);
+}
+
+.First .count .ele span.Nombre.two{
+    background-color: var(--red);
+}
+/*
+.First .count .ele span.Nombre.three{
+    background-color: #42c5a4;
+}*/
+
+.First .count .ele span.titre{
+    font-family: var(--font);
+    font-size:22px;
+    font-weight: bold;
+color:var(--mainColor);
+letter-spacing: 1.5px;
+}
+
+
+/**********************************************/
+.First .imagesUser{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    position:relative;
+    top: -120px;
+    left: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.First .connect button{
+    background-color: #c54848;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 17px;
+    font-family: var(--font);
+    font-size: 24px;
+    color: #FFF;
+    transition: 0.3s ease-in-out;
+    margin-right: 8px;
+}
+.First .connect button:hover{
+background-color: #c71c1c;
+transform: scale(1.05);
+}
+/*First Profil END */
+/*Main Profil Start*/
+.container .main{
+    position: relative;
+    top: -6px;
+    left:80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container .main p,.container .main h4{
+    font-family: var(--font);
+    color:var(--mainColor);
+    margin:0px;
+}
+.container .main p{
+    font-size: 25px;
+}
+.container .main h4{
+    font-size: 45px;
+    color:#000;
+}
+
+
+/*Main Profil END*/
+
+/*hr{
+    position: relative;
+    top:10px;
+    left:45px;
+}*/
+/*
+.container .foot{
+    position: relative;
+    top: -79px;
+    right: -200px;
+    width: 656px;
+}
+.container .foot .description{
+   font-family: var(--font);
+   font-size:24px;
+}*/
+.container .foot{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -37px;
+}
+.container .foot .description{
+    width: 90%;
+    font-family: var(--font);
+    color:var(--mainColor);
+    font-size: 23px;
+}
+/******************************************/
+
+.Update{
+    background-color: #EEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -79px;
+    float: right;
+    width: 350px;
+    height: 397px;
+    padding: 50px;
+    transform: scale(0);
+    transition:  0.3s ease-in-out;
+}
+
+.Update form .Input label{
+    font-family: var(--font);
+    font-size: 25px;
+    margin-right: 77px;
+}
+.Update input[type="submit"]{
+    padding: 6px 12px;
+    margin-top: 10px;
+    background-color: var(--blue);
+    color:#FFF;
+    border-radius: 12px;
+    border:none;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+.Update input[type="submit"]:hover{
+    background-color: rgb(95, 94, 94);
+}
+.Update.show{
+    /*visibility: visible;*/
+    transform: scale(1);
+}
+/**************************************************/
+.imagesUser{
+    margin-left: -18%;
+}

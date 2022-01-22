@@ -1,0 +1,46 @@
+body{
+    background-color: #eee !important;
+    background-image: none !important;
+}
+#acceuil-header{
+    background: linear-gradient(to right, rgba(100,179,244, 0.6), rgba(255, 20, 147, 0.6)), url("../pexels-luis-quintero-2833037.jpg")  no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 520px;
+    color: #fbfbfd;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#acceuil-header h1{
+    position: relative;
+    top: 30%;
+    right: 17%;
+    font-size: 65px;
+}
+
+#acceuil-header p{
+    position: relative;
+    top: 40%;
+    right: 13.5%;
+    font-size: 25px;
+}
+
+#acceuil-header a{
+    position: relative;
+    top: 50%;
+    right: 39%;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #21a4a4;
+    padding: 25px 45px;
+    background-color: #fbfbfd;
+    transition: 0.6s;
+    border-radius: 5px;
+}
+
+#acceuil-header a:hover{
+    background-color: #21a4a4;
+    color: #fbfbfd;
+}

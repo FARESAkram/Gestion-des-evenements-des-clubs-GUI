@@ -1,21 +1,19 @@
 import React from 'react';
 import './styleSheets/EvenementCard.css';
-import Logo from './csclogo.jpg'
-import Logo2 from './itdaylogo.jpg'
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
 
-const EvenementCard = ({event:{nom,description,date,logo}}) => {
+const EvenementCard = ({event:{nom,description,date,logo,club}}) => {
     return (
         <div style={{width:"340px",height:"450px"}}>
             <a href="" className="card">
-                <img src={Logo2} className="card__image" alt=""/>
+                <img src={logo} className="card__image" alt=""/>
                 <div className="card__overlay">
                     <div className="card__header">
                         <svg className="card__arc" xmlns="http://www.w3.org/2000/svg">
                             <path/>
                         </svg>
-                        <img className="card__thumb" src={Logo} alt=""/>
+                        <img className="card__thumb" src={club.logo} alt=""/>
                         <div className="card__header-text">
                             <h3 className="card__title">{nom}</h3>
                             <span className="card__status"><Moment format='DD/MM/yyyy'>{date}</Moment></span>

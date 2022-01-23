@@ -13,9 +13,15 @@ function NavBar({isAuthenticated,loading,user,logout}){
                     <li className="items">
                         <Link to="/">Home</Link>
                     </li>
-                    { isAuthenticated && user &&
+                    { isAuthenticated && user && (user.data.isAdmin || user.data.isPresident) &&
                         <li className="items">
                             <Link to={user.data.isAdmin?'/dashboard':(user.data.isPresident && '/evenements')}>Dashboard</Link>
+                        </li>
+                    }
+                    {
+                        isAuthenticated && user &&
+                        <li className="items">
+                            <Link to={'/evenement/0/chat'}>Chat</Link>
                         </li>
                     }
                     {!isAuthenticated ?

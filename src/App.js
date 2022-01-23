@@ -24,7 +24,7 @@ import ScrollToTop from "./components/layouts/ScrollToTop/ScrollToTop";
 import Membres from './components/Dashboard/Membres'
 import Evenements from './components/Dashboard/Evenements';
 import Sidebar from './components/Dashboard/Sidebar/Sidebar'
-import TestComponenent from "./components/test/TestComponenent";
+import Chat from './components/Chat/Chat'
 
 //utils
 import setAuthToken from './utils/setAuthToken'
@@ -94,7 +94,7 @@ function App() {
                   <Route exact path="/membres" element={<Membre/>}/>
                   <Route exact path="/evenements" element={<EvenementD />}/>
                   <Route exact path="/presidents" element={<President />}/>
-                    <Route exact path='/evenement/:id/chat' element={<TestComponenent/>}/>
+                  <Route exact path='/evenement/:id/chat' element={<Chat/>}/>
                 </Routes>
               </ScrollToTop>
             </Fragment>

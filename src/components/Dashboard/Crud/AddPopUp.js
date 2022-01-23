@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
 import {useAlert} from "react-alert";
+import imageToBase64 from '../../../utils/imageToBase64';
 
 import './modal.css'
 
@@ -214,17 +215,31 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
 
         const handlePhotos = (e) => {
             const image = e.files[0]
-            console.log(image)
-                let base64String = ""
-                let reader = new FileReader();
-                reader.onload = () => {
-                    base64String = reader.result
-                                        .replace("data:", "")
-                                        .replace(/^.+,/, "")
-                reader.readAsDataURL(image[0]);
+            console.log(e.files[0])
+            let base64String = ""
+            var reader = new FileReader()
+            reader.readAsDataURL(image);
+            reader.onload = function () {
+                console.log(reader.result);
+                base64String = reader.result;
+                let obj = {
+                    column : ['file','logo'],
+                    data : base64String
                 }
-            console.log("base",base64String)
+                const nopvalues = values.map( (val)=>{
+                    if( val['column'][1] == 'Logo')
+                        val = obj
+                    return val
+                })
+                console.log(nopvalues)
+                setValues(nopvalues);
+
+            };
+            reader.onerror = function (error) {
+                console.log('Error: ', error);
+            };
         }
+
 
         return (
             <div className={showHideClassName}>
@@ -233,7 +248,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                     <div>
                     {
                         values.map((i)=>{
-                            if ( i.column[1] != 'id' && model !='presidents' && model !='membres')
+                            if ( i['column'][1] != 'id' && model !='presidents' && model !='membres' && model !='evenements')
 
                             return(
                             <div className="modalr-wrapper">
@@ -241,16 +256,39 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                                 { i.column[0] != 'file' ?
                                     <input key={values[cols[0]]} onChange={e => onTodoChange(e.currentTarget)} className="modalr-input" type={i.column[0]} name={i.column[1]} required/>
                                     :
-                                    <input key={values[cols[0]]} onChange={e => handlePhotos(e.currentTarget)} className="modalr-input" accept="image/png, image/jpeg" type={i.column[0]} name={i.column[1]} required/>
+                                    <input key={values[cols[0]]} onChange={e => handlePhotos(e.target)} className="modalr-input" accept="image/png, image/jpeg" type={i.column[0]} name={i.column[1]} required/>
                                 }
                             </div>)
                         })
+                    }
+                    { model === 'evenements'?
+                        <Fragment>
+                            <div className="modalr-wrapper">
+                            <label className="modalr-label" htmlFor={cols[1][1]}>{cols[1][1]}</label>
+                            <input key={values[cols[1]]} onChange={e => onTodoChange(e.currentTarget)} className="modalr-input" type={values[1]['column'][0]} name={values[1]['column'][1]} required/>
+                            </div>
+                            <div className="modalr-wrapper">
+                            <label className="modalr-label" htmlFor={cols[2][1]}>{cols[2][1]}</label>
+                            <input key={values[cols[2]]} onChange={e => onTodoChange(e.currentTarget)} className="modalr-input" type={values[2]['column'][0]} name={values[2]['column'][1]} required/>
+                            </div>
+                            <div className="modalr-wrapper">
+                            <label className="modalr-label" htmlFor={cols[3][1]}>{cols[3][1]}</label>
+                            <input key={values[cols[3]]} onChange={e => onTodoChange(e.currentTarget)} className="modalr-input" type={values[3]['column'][0]} name={values[3]['column'][1]} required/>
+                            </div>
+                            <div className="modalr-wrapper">
+                            <label className="modalr-label" htmlFor={cols[4][1]}>{cols[4][1]}</label>
+                            <input key={values[cols[4]]} onChange={e => handlePhotos(e.target)} className="modalr-input" accept="image/png, image/jpeg" type="file" name={values[4]['column'][1]} required/>
+                            </div>
+                        </Fragment>
+                        :
+                        <Fragment></Fragment>
                     }
                     { model === 'presidents' ?
                             <Fragment>
                                 <div className="modalr-wrapper">
                                     <label className="modalr-label" htmlFor="user">Utilisateurs</label>
                                     <select onChange={e => onTodoChange(e.currentTarget)} name="id_user" id="clubs">
+                                                     <option value=""></option>
                                         {users.map((user)=>{
                                             return ( <option value={user['id_user']}>{user['username']}</option>)
                                         })}
@@ -259,6 +297,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                                 <div className="modalr-wrapper">
                                         <label className="modalr-label" htmlFor="club">Club</label>
                                         <select onChange={e => onTodoChange(e.currentTarget)} name="id" id="clubs">
+                                                        <option value=""></option>
                                             {clubs.map((club)=>{
                                                 return ( <option value={club['id']}>{club['abbreviation']}</option>)
                                             })}
@@ -274,6 +313,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                             <div className="modalr-wrapper">
                                 <label className="modalr-label" htmlFor="user">Utilisateurs</label>
                                 <select onChange={e => onTodoChange(e.currentTarget)} name="id_user" id="clubs">
+                                                 <option value=""></option>
                                     {users.map((user)=>{
                                         return ( <option value={user['id_user']}>{user['username']}</option>)
                                     })}
@@ -282,6 +322,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                             <div className="modalr-wrapper">
                                     <label className="modalr-label" htmlFor="club">Evenements</label>
                                     <select onChange={e => onTodoChange(e.currentTarget)} name="id_evenement" id="clubs">
+                                                     <option value=""></option>           
                                         {evenements.map((evenement)=>{
                                             return ( <option value={evenement['id']}>{evenement['nom']}</option>)
                                         })}

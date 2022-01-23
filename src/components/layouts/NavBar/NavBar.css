@@ -4,15 +4,20 @@
 :root{
     --hover:#d61e1e;
     --maincolor: #c6dde4;
-    --navColor:#FFF;
-    --colorWord:#000;
+    --navColor:rgba(0, 0, 0, 0.849);
+    --colorWord:rgb(255, 255, 255);
     --hoverColor:rgb(61, 166, 207);
 }
 
 nav{
-    /*background-color: #DDD;*/
+    background-color: var(--navColor);
     padding: 0px 35px;
     /* box-shadow: 8px 8px 10px #DDD;*/
+    z-index: 1000;
+    right:0;
+    top:0;
+    position:fixed;
+    width: 100%;
 }
 nav ul{
     list-style: none;
@@ -20,9 +25,11 @@ nav ul{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0px;
 }
 nav ul li{
-    padding: 10px 0;
+    padding: 7px 0;
+    padding-bottom: 4px;
     cursor: pointer;
 }
 nav ul li.items{
@@ -61,6 +68,19 @@ nav ul li.logo{
     font-size:30px;
     letter-spacing: 2px;
 }
+
+#logo{
+    flex:1;
+    color:var(--colorWord);
+    font-size:23px;
+    font-weight: 600;
+    cursor: default;
+    user-select:none;
+    font-family: 'Dongle', sans-serif;
+    font-size:30px;
+    letter-spacing: 2px;
+}
+
 nav ul li a{
     color:var(--colorWord);
     text-decoration:none;
@@ -73,7 +93,7 @@ nav ul li a{
 
 }
 nav ul li:hover a{
-    color:var(--hoverColor);
+    color:var(--hoverButton);
     cursor: pointer;
 
 }

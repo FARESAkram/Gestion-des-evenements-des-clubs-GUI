@@ -6,6 +6,7 @@ import {useAlert} from "react-alert";
 import EvenementCard from "./EvenementCard"
 import AcceuilHeader from "./AcceuilHeader";
 import {Link} from "react-router-dom";
+import Footer from "../layouts/Footer/Footer"
 
 
 const Acceuil = () => {
@@ -28,7 +29,7 @@ const Acceuil = () => {
     },[])
 
     return (
-        <div style={{width:"100%",height:"100%"}} >
+        <div style={{width:"100%",height:"100%", background:"#eaeaea"}} >
             <AcceuilHeader/>
             {
                 loading?<Spinner/>:

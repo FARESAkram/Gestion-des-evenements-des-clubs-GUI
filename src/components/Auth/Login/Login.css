@@ -1,15 +1,21 @@
 .Container{
     box-sizing:border-box;
     margin: 120px auto;
+    margin-bottom : 85px;
     display:flex;
     justify-content: center;
     align-items: center;
     background-color: #FFF;
-    width:900px;
+    width:800px;
     height:402px;
-    box-shadow: 9px 9px 10px #cfcfcf;
+    box-shadow: 10px 10px 20px #696969af;
     border-radius: 0 10px 10px 0;
 }
+
+.All{
+    background-color: #eaeaea;
+}
+
 .Forms{
     margin-left: 10px;
 }
@@ -36,11 +42,16 @@
 .login-form h3 span{
     color:rgb(119, 119, 119);
 }
+
 .botton{
+    width: 200px;
     background-color: rgb(61, 202, 207) !important;
     outline: none !important;
-    border: none !important;
+    border: none !important; 
+    position: sticky;
+    right: 0px;
 }
+
 .botton:hover{
     background-color:rgb(119, 119, 119) !important;
 }

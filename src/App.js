@@ -25,6 +25,9 @@ import Membres from './components/Dashboard/Membres'
 import Evenements from './components/Dashboard/Evenements';
 import Sidebar from './components/Dashboard/Sidebar/Sidebar'
 import Chat from './components/Chat/Chat'
+import Dashboard from './components/Dashboard/Statistics/Dashboard'
+import Footer from "./components/layouts/Footer/Footer";
+
 
 //utils
 import setAuthToken from './utils/setAuthToken'
@@ -90,12 +93,14 @@ function App() {
                   <Route exact path='/login' element={<Login/>}/>
                   <Route exact path="/profile" element={<ProfilePage />}/>
                   <Route exact path='/evenement/:id' element={<Evenement/>}/>
+                  <Route exact path='/dashboard' element={<Dashboard/>}/>
                   <Route exact path="/clubs" element={<Club/>} />
                   <Route exact path="/membres" element={<Membre/>}/>
                   <Route exact path="/evenements" element={<EvenementD />}/>
                   <Route exact path="/presidents" element={<President />}/>
                   <Route exact path='/evenement/:id/chat' element={<Chat/>}/>
                 </Routes>
+                <Footer/>
               </ScrollToTop>
             </Fragment>
           </Router>

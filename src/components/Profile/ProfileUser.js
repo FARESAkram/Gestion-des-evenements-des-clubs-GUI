@@ -8,9 +8,8 @@ import {updateUser} from '../../Redux/actions/auth'
 
 const ProfilUser = ({user , updateUser}) => {
     let alert = useAlert()
-  const [CountCl,setCountCl]=useState(0);
-  const [UserState,setUserState]=useState({});
-  const [countCellule,setCountCesllule]=useState(0);
+  const [CountClub,setCountClub]=useState(0);
+  const [countEvent,setCountEvent ]=useState(0);
 
 //----------------------------------------------------------------
 const ele= useRef();
@@ -25,6 +24,15 @@ const ele= useRef();
         prenom:user.data.prenom,
         nom:user.data.nom
   })
+
+  useEffect(()=>{
+      axios.get(`/api/v1/membredevenements/all/getEvents`).then(res=>{
+          setCountEvent(res.data.data.length)
+      })
+      axios.get(`/api/v1/roles/club/all/userClubs`).then(res=>{
+          setCountClub(res.data.data.length)
+      })
+  },[user])
   const {username,telephone,profilepic,email,motdepasse,cin,prenom,nom} = formData
   const handleChange = e => {
       setFormData({
@@ -61,10 +69,10 @@ const ele= useRef();
         <div className="First">
           <div className="count" >
             <div className="ele">
-             <span className="Nombre one">{countCellule}</span><span className="titre">Events</span>
+             <span className="Nombre one">{countEvent}</span><span className="titre">Events</span>
             </div>
             <div className="ele">
-            <span className="Nombre two">{CountCl}</span><span className="titre">Clubs</span>
+            <span className="Nombre two">{CountClub}</span><span className="titre">Clubs</span>
             </div>
           </div>
 
@@ -72,11 +80,11 @@ const ele= useRef();
           <div className="connect">
             <button  onClick={
               e=>{
-                if(e.target.innerText==="Hidden Update"){
+                if(e.target.innerText==="Hide Update"){
                   e.target.innerText="Show Update";
                   ele.current.classList.remove("show");
                 }else{
-                  e.target.innerText="Hidden Update";
+                  e.target.innerText="Hide Update";
                   ele.current.classList.add("show");
                 }
 
@@ -106,15 +114,7 @@ const ele= useRef();
                     value={formData.telephone}
                 />
               </div>
-              <div className="Input">
-              <label>Change Profile Image</label>
-              <input 
-                    type="file" 
-                    name="profilepic"
-                    onChange={e=>handleProfilePicture(e)}
-                />
-             </div>
-              <div className="Input">
+              <div className="Input mail">
                <label>Email</label>
                <input 
                     type="email" 
@@ -123,7 +123,7 @@ const ele= useRef();
                     value={formData.email}
                />
               </div>
-              <div className="Input">
+              <div className="Input password">
                <label>Password</label>
                <input 
                     type="password"
@@ -132,16 +132,24 @@ const ele= useRef();
                     value={formData.motdepasse}
                 />
               </div>
-              <input type="submit" value ="change"/>
+              <div className="Input">
+              <label>Profile Image</label>
+              <input className="ima"
+                    type="file" 
+                    name="profilepic"
+                    onChange={e=>handleProfilePicture(e)}
+                />
+             </div>
+              <input className ="submit" type="submit" value ="Mettre à jour"/>
            </form>
 
         </div>
 
         <div className="main">
           <h4 className="FullName">{user.data.prenom+" "+user.data.nom}</h4>
-          <p className="UserName">{user.data.username}</p>
-          <p className="Email">{user.data.email}</p>
-          <p className="Phone">{user.data.telephone}</p>
+          <p className="UserName"><span>Username : </span> {user.data.username}</p>
+          <p className="Email"><span>Email : </span>{user.data.email}</p>
+          <p className="Phone"><span>Téléphone : </span>{user.data.telephone}</p>
           <p className="Ecole">Ecole National de science Appliquée de Tanger </p>
         </div>
         <div className="foot">

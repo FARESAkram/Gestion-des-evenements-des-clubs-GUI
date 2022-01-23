@@ -63,6 +63,8 @@
   color: rgb(0, 0, 0);
   font-family: 'Roboto','sans-serif';
   font-size: 14px;
+  width: 160px;
+  padding-left: 4px;
 }
 
 .modalr-buttons{
@@ -133,4 +135,8 @@
 
 .modalr-button::-webkit-details-marker {
   display: none;
+}
+
+select{
+  width: 160px;
 }

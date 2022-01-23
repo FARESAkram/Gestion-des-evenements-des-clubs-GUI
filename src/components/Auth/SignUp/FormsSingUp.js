@@ -127,7 +127,7 @@ function FormsSingUp ({signup, isAuthenticated}){
                     required={true}
                 />
             </FormGroup>
-            <MdAccountBalance className="CIN" size="1em"/>
+            <MdAccountBalance className="cin" size="1em"/>
 
             <FormGroup>
                 <Label>Email</Label>

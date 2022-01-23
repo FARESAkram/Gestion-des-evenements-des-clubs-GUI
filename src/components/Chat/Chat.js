@@ -19,7 +19,7 @@ function Chat({auth:{user,isAuthenticated,loading}}){
     },[events])
 
     useEffect(()=>{
-        axios.get(`/api/v1/membredevenements/all/evenements/${id}/getEvents`).then(res=>{
+        axios.get(`/api/v1/membredevenements/all/getEvents`).then(res=>{
             setEvents(res.data.data)
         })
         if((!loading && !isAuthenticated) || (parseInt(id)!==0 && events.length && !events.find(e=>parseInt(e.id)===parseInt(id)))){

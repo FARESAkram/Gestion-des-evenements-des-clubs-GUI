@@ -56,7 +56,7 @@
     padding: 10px;
     padding-top : 15px;
     padding-bottom : 15px;
-    padding-right: 50px;
+    padding-right: 30px;
     margin-bottom: 40px;
     margin-top: 30px;
     justify-content: space-between;
@@ -68,13 +68,7 @@
   }
 
   .side-bar-user-icon{
-    padding-left : 10px;
-    max-width: 30px;
-    max-height: 30px;
-  }
-  .side-bar-user-icon img{
-    max-width: 30px;
-    max-height: 30px;
+    padding-left : 4px;
   }
 
   .side-bar-user-name{

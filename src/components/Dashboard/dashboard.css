@@ -1,5 +1,5 @@
 :root{
-  --color1 : #356788c4;
+  --color1 : #356788a4;
   --color2 : #356788;
   --color3 : #2f799b;
   --color4 : #5353535e;
@@ -12,10 +12,14 @@
   --color5 : #b3b3b3;
   --color6 : #74eb34; */
 }
+body{
+  background-color: white;
+}
   .body{
     display : flex;
-    /*background: linear-gradient(60deg, white 80% , var(--color1) 20% ); */
+    background: white;
     width: 100%;
+    margin-top: 50px;
   }
   
   .body-main-section{
@@ -39,10 +43,9 @@
   }
   
   .main-table-card{
-    border : 1px solid lightgray;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.219);
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.534);
     border-radius: 10px;
-    width : 400px;
+    width : 500px;
     padding: 10px;
     padding-top : 15px;
     padding-left: 30px;

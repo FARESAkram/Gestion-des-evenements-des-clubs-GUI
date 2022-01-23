@@ -10,30 +10,33 @@ body{
     background-image: url("./cover.jpeg");
 }
 .Containers {
+    overflow:hidden;
     box-sizing: border-box;
 /*    border: 3px solid rgb(17, 17, 17, 0.5);*/
     margin: 35px auto;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     background-color: #fff;
-    width: 570px;
-    height: 740px;
-/*    box-shadow: 15px 15px 14px #cfcfcf;*/
+    width: 450px;
+    height: 720px;
+    box-shadow: 5px 5px 14px #61616193;
     border-radius: 10px;
 }
+
 .Forms {
     margin-left: 10px;
+    margin-bottom:20px;
 }
+
 .login-form {
     width: 100%;
-    max-width: 425px;
     /*padding: 15px;*/
     margin: auto;
     height: 100%;
 }
 .login-form h3 {
-    margin-bottom: 20px;
     color: rgb(61, 202, 207);
 }
 
@@ -42,6 +45,7 @@ body{
 }
 
 .botton {
+    width: 300px;
     background-color: rgb(61, 202, 207) !important;
     outline: none !important;
     border: none !important;
@@ -49,8 +53,9 @@ body{
     margin:12px auto;
     position: relative;
     left: 127px;
-    padding: 8px 20px !important;
+    padding: 5px 0px !important;
 }
+
 .botton:hover {
     background-color: rgb(204, 202, 202) !important;
 }
@@ -61,10 +66,10 @@ Label {
 .block {
     display: flex;
 }
-.mb-3 {
+/* .mb-3 {
     margin-right: 12px;
-    margin-bottom: 10px;
-}
+    margin-bottom: px;
+} */
 
 .title {
     display: flex !important;
@@ -90,6 +95,6 @@ Label {
 .person2{ top:40px;left: -38px}
 .user{top: 40px;left: -34px;}
 .tele{top: 40px;left: -35px;}
-.cin{top: -48px;left: 353px;}
-.email{top: -48px;left: 353px;}
-.pswd{top: -72px;left: 358px;}
+.cin{top: -50px;right: -260px;}
+.email{top: -48px;right: -260px;}
+.pswd{top: -62px;right: -260px;}

@@ -90,7 +90,6 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
                                     </Fragment>
                                     :
                                     <Fragment>
-                                    <button className="crud-button" onClick={(e) => {handleAdd()}}><AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
                                     </Fragment>
                                 }
                                 <button id ={prop[0]} className="crud-button" onClick={(e) => {handleDelete(e)}}><DeleteIcon  sx = {{ color : 'red'}}/></button>
@@ -102,16 +101,9 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
                 </tbody>
             </table>
 
-            {
-                model !== 'membres' && model !== 'presidents' ?
-                <Fragment>
-                <button className="crud-add-button" onClick={(e) => {handleAdd()}}>ADD &nbsp;<AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
-                </Fragment>
-                :
-                <Fragment>
-                </Fragment>
-            }
-
+            
+            <button className="crud-add-button" onClick={(e) => {handleAdd()}}>ADD &nbsp;<AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
+                
         </div>
     )
 }

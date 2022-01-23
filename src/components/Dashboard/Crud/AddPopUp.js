@@ -288,6 +288,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                                 <div className="modalr-wrapper">
                                     <label className="modalr-label" htmlFor="user">Utilisateurs</label>
                                     <select onChange={e => onTodoChange(e.currentTarget)} name="id_user" id="clubs">
+                                                     <option value=""></option>
                                         {users.map((user)=>{
                                             return ( <option value={user['id_user']}>{user['username']}</option>)
                                         })}
@@ -296,6 +297,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                                 <div className="modalr-wrapper">
                                         <label className="modalr-label" htmlFor="club">Club</label>
                                         <select onChange={e => onTodoChange(e.currentTarget)} name="id" id="clubs">
+                                                        <option value=""></option>
                                             {clubs.map((club)=>{
                                                 return ( <option value={club['id']}>{club['abbreviation']}</option>)
                                             })}
@@ -311,6 +313,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                             <div className="modalr-wrapper">
                                 <label className="modalr-label" htmlFor="user">Utilisateurs</label>
                                 <select onChange={e => onTodoChange(e.currentTarget)} name="id_user" id="clubs">
+                                                 <option value=""></option>
                                     {users.map((user)=>{
                                         return ( <option value={user['id_user']}>{user['username']}</option>)
                                     })}
@@ -319,6 +322,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
                             <div className="modalr-wrapper">
                                     <label className="modalr-label" htmlFor="club">Evenements</label>
                                     <select onChange={e => onTodoChange(e.currentTarget)} name="id_evenement" id="clubs">
+                                                     <option value=""></option>           
                                         {evenements.map((evenement)=>{
                                             return ( <option value={evenement['id']}>{evenement['nom']}</option>)
                                         })}

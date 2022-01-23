@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react';
 import DeletePopUp from './DeletePopUp';
 import UpdatePopUp from './UpdatePopUp';
 import AddPopUp from './AddPopUp';
-import $ from 'jquery';
+import { Fragment } from 'react';
 
 import './table.css';
 
@@ -47,7 +47,14 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
         <div>
             
             <div>
-                <UpdatePopUp president = {president} show={showUpdate} cols = {cols} selectedRow={selectedRow} setData = {setData} data= {data}  handleClose={handleClose} model={model}/>
+                {
+                    model !== 'membres' && model !=='presidents' ?
+                    <Fragment>
+                    <UpdatePopUp president = {president} show={showUpdate} cols = {cols} selectedRow={selectedRow} setData = {setData} data= {data}  handleClose={handleClose} model={model}/>
+                    </Fragment>
+                    :
+                    <Fragment></Fragment>
+                }
                 <DeletePopUp president = {president} data= {data} setData = {setData}  model = {model} show={showDelete} selectedRow={selectedRow} handleClose={handleClose} />
                 <AddPopUp president = {president} data= {data} setData = {setData} show = {showAdd} cols = {cols} handleClose ={handleClose} model = { model }/>
             </div>  
@@ -67,12 +74,25 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
                         data.map(prop => {
                             return ( 
                                 <tr key={prop[0]} className="active-row" >
-                                    {prop.map( prop => {
+                                    {prop.map( (prop,index) => {
+                                        if(index === 4){
+                                        return (<td key={`${Math.floor((Math.random() * 1000))}-min`}><img className ="crud-logo" src = {prop} alt ="logo"/></td>)
+                                        }else{
                                         return (<td key={`${Math.floor((Math.random() * 1000))}-min`}>{prop}</td>)
+                                        }
                                         }) 
                                     }
                                 <td key={prop[0]} > 
-                                <button id ={prop[0]} className = "crud-button" onClick={(e) => {handleEdit(e)}} ><EditIcon sx={{ color : 'yellow'}} /></button>
+                                {
+                                    model !== 'membres' && model !=='presidents' ?
+                                    <Fragment>
+                                    <button id ={prop[0]} className = "crud-button" onClick={(e) => {handleEdit(e)}} ><EditIcon sx={{ color : 'yellow'}} /></button>
+                                    </Fragment>
+                                    :
+                                    <Fragment>
+                                    <button className="crud-button" onClick={(e) => {handleAdd()}}><AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
+                                    </Fragment>
+                                }
                                 <button id ={prop[0]} className="crud-button" onClick={(e) => {handleDelete(e)}}><DeleteIcon  sx = {{ color : 'red'}}/></button>
                                 </td>
                                 </tr>
@@ -82,7 +102,15 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
                 </tbody>
             </table>
 
-            <button className="crud-add-button" onClick={(e) => {handleAdd()}}>ADD &nbsp;<AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
+            {
+                model !== 'membres' && model !== 'presidents' ?
+                <Fragment>
+                <button className="crud-add-button" onClick={(e) => {handleAdd()}}>ADD &nbsp;<AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
+                </Fragment>
+                :
+                <Fragment>
+                </Fragment>
+            }
 
         </div>
     )

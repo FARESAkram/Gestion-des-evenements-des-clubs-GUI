@@ -13,6 +13,7 @@
 .crud-add-button{
     border: none;
     float:right;
+    margin-top: 5px;
     margin-right: 80px;
     font-size: 14px;
     font-family: sans-serif;
@@ -85,3 +86,11 @@
     outline: inherit;
   }
   
+
+  .crud-logo{
+      width: 60px;
+      height: 40px;
+      max-width: 60px;
+      max-height: 60px;
+      border-radius: 10px;
+  }

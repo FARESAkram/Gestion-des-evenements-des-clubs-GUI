@@ -137,6 +137,32 @@ const UpdatePopUp = ({ handleClose, cols, selectedRow, show, model,data, setData
             setValues(tmp)
         }
     
+        const handlePhotos = (e) => {
+            const image = e.files[0]
+            console.log(e.files[0])
+            let base64String = ""
+            var reader = new FileReader()
+            reader.readAsDataURL(image);
+            reader.onload = function () {
+                console.log(reader.result);
+                base64String = reader.result;
+                let obj = {
+                    column : ['file','logo'],
+                    data : base64String
+                }
+                const nopvalues = values.map( (val)=>{
+                    if( val['column'][1] == 'Logo')
+                        val = obj
+                    return val
+                })
+                console.log(nopvalues)
+                setValues(nopvalues);
+
+            };
+            reader.onerror = function (error) {
+                console.log('Error: ', error);
+            };
+        }
 
         return (
             <div className={showHideClassName}>
@@ -145,7 +171,7 @@ const UpdatePopUp = ({ handleClose, cols, selectedRow, show, model,data, setData
                     <div>
                     {
                         values.map((i)=>{
-                            if ( i.column[1] != 'id' && i.column[1] != 'id_user')
+                            if ( i.column[1] != 'id' && i.column[1] != 'id_user' )
                                 if (i.column[1] == 'Club' && model === 'presidents'){
                                     return(
                                             <div className="modalr-wrapper">
@@ -156,6 +182,13 @@ const UpdatePopUp = ({ handleClose, cols, selectedRow, show, model,data, setData
                                                         })}
                                                     </select>
                                             </div>
+                                        )
+                                }else if ( i.column[1]=='Logo') {
+                                    return(
+                                        <div className="modalr-wrapper">
+                                        <label className="modalr-label" htmlFor={cols[4][1]}>{cols[4][1]}</label>
+                                        <input key={values[cols[4]]} onChange={e => handlePhotos(e.target)} className="modalr-input" accept="image/png, image/jpeg" type="file" name={values[4]['column'][1]} required/>
+                                        </div>
                                         )
                                 }else{
                                     return(

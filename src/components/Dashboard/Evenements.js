@@ -8,7 +8,7 @@ const Evenements = ({user,loading}) =>{
     
     // this was copy pasted and still nothing done here.
     const [president,setPresident] = useState()
-    const cols = [['text','id'],['text','Nom'],['text','Description'],['date','Date']]
+    const cols = [['text','id'],['text','Nom'],['text','Description'],['date','Date'],['file','Logo']]
     const [data,setData] = useState([]);
     const title = "Evenements de votre club"
     const description = "Ici la liste des évènements de votre club"
@@ -23,7 +23,7 @@ const Evenements = ({user,loading}) =>{
                 var data=[]
                 res.data.data.forEach((row)=>{
                     let newdata = Object.values(row)
-                    newdata = [newdata[0],newdata[2],newdata[3],newdata[4]]
+                    newdata = [newdata[0],newdata[2],newdata[3],newdata[4],newdata[5]]
                     data = [...data,newdata]
                 })
                 console.log(data)

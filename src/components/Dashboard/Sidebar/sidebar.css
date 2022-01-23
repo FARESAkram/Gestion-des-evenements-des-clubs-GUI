@@ -56,7 +56,7 @@
     padding: 10px;
     padding-top : 15px;
     padding-bottom : 15px;
-    padding-right: 30px;
+    padding-right: 50px;
     margin-bottom: 40px;
     margin-top: 30px;
     justify-content: space-between;
@@ -68,7 +68,7 @@
   }
 
   .side-bar-user-icon{
-    padding-left : 4px;
+    padding-left : 10px;
   }
 
   .side-bar-user-name{

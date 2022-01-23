@@ -6,7 +6,7 @@ import Spinner from "../layouts/Spinner/Spinner";
 import Moment from 'react-moment';
 import {Link, useParams} from 'react-router-dom';
 import EvenementCard from '../Acceuil/EvenementCard';
-import style from './Evenement.module.css';
+import './Evenement.css';
 import '../Acceuil/styleSheets/EvenementCard.css';
 
 const Evenement = () => {
@@ -43,22 +43,23 @@ const Evenement = () => {
 
             {
                 loading?<Spinner/>:
-                    <div className = {style.EvenementDetail}>
-                        <div className = {style.evenementHeader}>
+                    <div className = "EvenementDetail">
+                        <div className = "evenementHeader">
                             <h1>{evenement.nom}</h1>
                             <h3><Moment format='DD/MM/yyyy'>{evenement.date}</Moment></h3>
-                            <h2>organised by Computer science club</h2>
-                            <div className = {style.countdown}>
+                            <h2>Organisé par Computer science club</h2>
+                            {/* HARDCODED SHIT NEEDS TO BE FIXED */}
+                            <div className = "countdown">
 
                             </div>
                         </div>
-                        <div className = {style.evenementDescription}>
+                        <div className = "evenementDescription" id ="about-container">
                             <div >
                                 <h2>About The Event</h2>
                                 <p>{evenement.description}</p>
                             </div>
-                            <div>
-                                <img src="/images/kane-reinholdtsen-LETdkk7wHQk-unsplash.jpg" alt="" />
+                            <div className ="evenement-image">
+                                <img className="img" src="https://ec.europa.eu/jrc/sites/default/files/styles/normal-responsive/public/adobestock_115562338_jonbilous.jpeg?itok=KwBf2ftE" alt="" />
                             </div>
                         </div>
                         <ul id={"events"} className={"cards"}>

@@ -25,6 +25,7 @@ import Membres from './components/Dashboard/Membres'
 import Evenements from './components/Dashboard/Evenements';
 import Sidebar from './components/Dashboard/Sidebar/Sidebar'
 import TestComponenent from "./components/test/TestComponenent";
+import Footer from "./components/layouts/Footer/Footer";
 
 //utils
 import setAuthToken from './utils/setAuthToken'
@@ -96,6 +97,7 @@ function App() {
                   <Route exact path="/presidents" element={<President />}/>
                     <Route exact path='/evenement/:id/chat' element={<TestComponenent/>}/>
                 </Routes>
+                <Footer/>
               </ScrollToTop>
             </Fragment>
           </Router>

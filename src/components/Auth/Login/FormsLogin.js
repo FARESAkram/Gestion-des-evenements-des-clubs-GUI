@@ -58,7 +58,7 @@ function FormsLogin({login,isAuthenticated}){
                 />
             </FormGroup>
             <Button
-                className="btn-lg btn-dark btn-block botton"
+                className="botton"
                 type={"submit"}
             >Log in</Button>
         </Form>

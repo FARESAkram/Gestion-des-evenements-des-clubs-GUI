@@ -77,7 +77,8 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
     const addClubs = async (body) => {
         const reqlink = '/api/v1/clubs/'
         try{
-            const res = await axios.post(reqlink,body,{ headers : { "Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkX3VzZXIiOjF9LCJpYXQiOjE2NDIzMDk4NzcsImV4cCI6MTY0MjY2OTg3N30.45tia2Q6P5Rlv6PWdF1EucY5W8rlINzt1jW3y2vS0Yk" } })
+            const res = await axios.post(reqlink,body
+                ,{ headers : { "Content-Type":"application/json"}})
             var newclub = Object.values(res.data.data)
             newclub.pop() // removing that createdat
             newclub.pop() //removing that updatedat
@@ -96,7 +97,7 @@ const AddPopUp = ({ handleClose, cols, show, model,data, setData, president}) =>
         const user = { 'id_user':body['id_user'] }
         try{
             const res = await axios.put(reqlink,user, { headers : { "Content-Type":"application/json" }})        
-            const restwo = await axios.get('/api/v1/admin/allpresidents',{headers : {"Content-Type":"application/json","x-auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkX3VzZXIiOjF9LCJpYXQiOjE2NDIyODAyMjYsImV4cCI6MTY0MjY0MDIyNn0.wkXUwVIx8nEj7O14vEz3_QUcrRcUxmxjJMuEb8uQmC8"}})
+            const restwo = await axios.get('/api/v1/admin/allpresidents',{headers : {"Content-Type":"application/json"}})
             let data=[]
             restwo.data.data.forEach((row)=>{
                 let user = Object.values(row.user)

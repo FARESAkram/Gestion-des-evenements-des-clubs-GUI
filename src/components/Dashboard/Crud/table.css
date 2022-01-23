@@ -10,6 +10,27 @@
     padding-bottom : 10px;
 }
   
+.crud-add-button{
+    border: none;
+    float:right;
+    margin-right: 80px;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: var(--color2);
+    background-color: rgba(162, 179, 255, 0.527);
+    border-radius: 5px;
+    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+@media only screen and (max-width: 720px) {
+    .crud-add-button {
+      margin-right: 20px;
+    }
+  }
+
 #crud-table-title{
     border-bottom: 2px solid rgba(0, 0, 0, 0.219);
 }
@@ -18,6 +39,7 @@
 .styled-table {
     border-collapse: collapse;
     margin: 25px 0;
+    margin-bottom: 10px;
     font-size: 0.9em;
     font-family: sans-serif;
     width: 100%;

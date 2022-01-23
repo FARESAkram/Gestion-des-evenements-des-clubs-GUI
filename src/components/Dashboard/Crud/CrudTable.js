@@ -1,13 +1,16 @@
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 import React, {useEffect, useState} from 'react';
 import DeletePopUp from './DeletePopUp';
 import UpdatePopUp from './UpdatePopUp';
 import AddPopUp from './AddPopUp';
+import $ from 'jquery';
 
 import './table.css';
 
 const CrudTable = ({columns,model,data,setData,president,loading}) => {
+
 
     const [showUpdate,setShowUpdate] = useState(false);
     const [showDelete,setShowDelete] = useState(false);
@@ -49,7 +52,7 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
                 <AddPopUp president = {president} data= {data} setData = {setData} show = {showAdd} cols = {cols} handleClose ={handleClose} model = { model }/>
             </div>  
 
-            <table className="styled-table">
+            <table className="styled-table" id="crudtable">
                 <thead>
                 <tr id = "crud-table-title" key={model} >
                     { cols.map(prop => {
@@ -79,7 +82,7 @@ const CrudTable = ({columns,model,data,setData,president,loading}) => {
                 </tbody>
             </table>
 
-            <button className="crud-button active-row" onClick={(e) => {handleAdd()}}>ADD </button>
+            <button className="crud-add-button" onClick={(e) => {handleAdd()}}>ADD &nbsp;<AddBoxIcon sx={{  width:'30px', height:'30px'}} /> </button>
 
         </div>
     )

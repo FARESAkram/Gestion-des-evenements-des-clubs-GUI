@@ -9,11 +9,21 @@ const ChatRoom = ({user,event})=>{
     const [messages,setMessages] = useState([])
     const [textInput, setTextInput] = useState("")
     const bottomOfChat = useRef(null)
+    const [mssg,setMssg] = useState({})
+    const [test,setTest] = useState(true)
 
-    socket.on('sendMessage',data=>{
-        setSentOrReceived('received')
-        setMessages([...messages,data])
-    })
+    useEffect(()=>{
+        socket.on('sendMessage',data=>{
+            setSentOrReceived('received')
+            setMssg(data)
+        })
+    },[])
+
+    useEffect(()=>{
+        if(sentOrReceived === 'received'){
+            setMessages([...messages,mssg])
+        }
+    },[mssg])
 
     const onSubmit = e=>{
         e.preventDefault()
@@ -37,9 +47,13 @@ const ChatRoom = ({user,event})=>{
     }
 
     useEffect(()=>{
-        if(bottomOfChat.current && sentOrReceived==='sent')
-            bottomOfChat.current.scrollIntoView({ behavior: "smooth" })
+        setTest(!test)
     },[messages])
+
+    useEffect(()=>{
+        if(bottomOfChat.current)
+            bottomOfChat.current.scrollIntoView({ behavior: "smooth" })
+    },[test])
 
     useEffect(()=>{
         if(event){
@@ -78,7 +92,7 @@ const ChatRoom = ({user,event})=>{
                                     </div>
                                 ))
                             }
-                            <span ref={bottomOfChat}></span>
+                            <span ref={bottomOfChat}/>
                         </div>
                     </div>
                     <form className="inputMessage" onSubmit={e=>onSubmit(e)}>

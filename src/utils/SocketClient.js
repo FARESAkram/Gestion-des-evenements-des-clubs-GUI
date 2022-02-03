@@ -7,9 +7,9 @@ class SocketClient {
         return io('http://localhost:5000/')
     }
     static getSocket = function (){
-        if(this.socket===null)
-            this.socket = this.connectSocket()
-        return this.socket
+        if(SocketClient.socket===null)
+            SocketClient.socket = SocketClient.connectSocket()
+        return SocketClient.socket
     }
 }
 

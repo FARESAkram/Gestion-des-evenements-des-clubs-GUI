@@ -66,7 +66,7 @@ export const login = (email, password) => async dispatch => {
     }
     const body = { credentials:email, motdepasse:password }
     try {
-        const res = await axios.post('http://localhost:5000/api/v1/users/login', body, config)
+        const res = await axios.post('/api/v1/users/login', body, config)
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

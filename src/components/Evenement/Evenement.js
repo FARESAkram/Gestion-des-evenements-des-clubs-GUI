@@ -64,11 +64,13 @@ const Evenement = () => {
                         </div>
                         <ul id={"events"} className={"cards"}>
                             {
-                                events.map(event => (
+                                events.map(event => {
+                                    if (id !== event.id)
+                                    return(
                                     <li key={event.id}>
                                         <Link to={`/evenement/${event.id}`}><EvenementCard event={event}/></Link>
-                                    </li>
-                                ))
+                                    </li>)
+                                })
                             }
                         </ul>
                     </div>

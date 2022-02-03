@@ -20,7 +20,7 @@ const Presidents = ({user,loading}) =>{
             res.data.data.forEach((row)=>{
                 let user = Object.values(row.user)
                 let userclub = Object.values(row.club)
-                let newdata = [user[0],user[1],userclub[0],userclub[1]]
+                let newdata = [user[0],user[6],userclub[0],userclub[1]]
                 data = [...data,newdata]
             })
 

@@ -1,4 +1,4 @@
-import SideBar from "./Sidebar/Sidebar"
+import SideBar from "../Sidebar/Sidebar";
 import "./style.css"
 import Cards from "./Card/Cards"
 import { useEffect, useState } from "react"
@@ -68,7 +68,7 @@ const Dashboard = () => {
     
   },[])
   return (
-    <div className="wrapper">
+    <div className="wrapper body">
       <SideBar />
       <div className="main-container">
         <Cards cards={cards} />

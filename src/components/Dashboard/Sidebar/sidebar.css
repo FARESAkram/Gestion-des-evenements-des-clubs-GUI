@@ -4,7 +4,7 @@
     padding : 10px;
     padding-right : 30px;
     width: 280px;
-    height: 100vh;
+    height: 100em;
     overflow: auto;
     border-right: 1px dashed rgba(15, 15, 15, 0.473);
     background-color: rgba(248,249,250);
@@ -76,6 +76,7 @@
   .side-bar-user-icon img{
     max-width: 30px;
     max-height: 30px;
+    border-radius : 20px;
   }
 
   .side-bar-user-name{
